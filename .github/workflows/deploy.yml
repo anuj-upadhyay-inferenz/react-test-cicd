@@ -21,12 +21,17 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+        ports:
+          - 5432:5432
+    
     steps:
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
           node-version: 12    
       - run: npm ci
+      - run: sudo -u postgres createuser -s -i -d -r -l -w atlas
+      - run: sudo -u postgres psql -c "ALTER ROLE atlas WITH PASSWORD '7265';"
       - run: createdb mydb
       - run: npx db-migrate up
       - run: npm test
