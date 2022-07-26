@@ -1,0 +1,11 @@
+{
+"dev": {
+    "driver": "pg",
+    "user": "atlas",
+    "password": "7265",
+    "host": "localhost",
+    "database": "mydb",
+    "port": "5432",
+    "schema": "mydb"
+  }
+}
