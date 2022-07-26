@@ -30,9 +30,6 @@ jobs:
         with:
           node-version: 12    
       - run: npm ci
-      - run: sudo -u postgres createuser -s -i -d -r -l -w atlas
-      - run: sudo -u postgres psql -c "ALTER ROLE atlas WITH PASSWORD '7265';"
-      - run: createdb mydb
       - run: npx db-migrate up
       - run: npm test
       - run: npm run build
