@@ -21,9 +21,7 @@ exports.up = function (db) {
   })
   .then(
     function(result) {
-      db.createTable('owners', {
-        id: { type: 'int', primaryKey: true },
-        name: 'string'
+      db.insert('pets', { id: 1, name: 'Percy'
       });
     },
     function(err) {
