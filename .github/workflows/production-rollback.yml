@@ -25,6 +25,10 @@ jobs:
           - 5432:5432
     
     steps:
+      - id: latest
+        uses: thebritican/fetch-latest-release@master
+        with:
+          github_token: ${{ secrets.TEST_TOKEN }}
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
