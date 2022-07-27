@@ -25,8 +25,7 @@ jobs:
           - 5432:5432
     
     steps:
-      - id: latest
-        uses: thebritican/fetch-latest-release@v1.0.3
+      - uses: thebritican/fetch-latest-release@v1.0.3
       - uses: actions/checkout@master
       - uses: actions/setup-node@master
         with:
