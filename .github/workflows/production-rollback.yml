@@ -1,4 +1,4 @@
-name: Production Firebase Continuous Deployment
+name: Production Rollback
 
 on: 
   release:
