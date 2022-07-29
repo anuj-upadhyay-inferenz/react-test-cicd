@@ -27,16 +27,9 @@ jobs:
           - 5432:5432
     
     steps:
-      - uses: actions/checkout@master
-      - uses: actions/setup-node@master
-        with:
-          node-version: 12    
+      - uses: actions/checkout@master   
       - run: npm ci
       - run: npx db-migrate up
       - run: npm test
       - run: npm run build
-      - uses: w9jds/firebase-action@master
-        with:
-          args: deploy --only hosting
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
+      - run: cp -r build/* /var/www/43.205.78.4/
