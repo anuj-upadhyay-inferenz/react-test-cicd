@@ -27,7 +27,10 @@ jobs:
           - 5432:5432
     
     steps:
-      - uses: actions/checkout@master   
+      - uses: actions/checkout@master
+      - uses: actions/setup-node@master
+        with:
+          node-version: 12    
       - run: npm ci
       - run: npx db-migrate up
       - run: npm test
