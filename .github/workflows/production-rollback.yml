@@ -4,7 +4,6 @@ on:
   release:
     types: [ deleted ]
 
-
 jobs:
   deploy:
     runs-on: self-hosted
